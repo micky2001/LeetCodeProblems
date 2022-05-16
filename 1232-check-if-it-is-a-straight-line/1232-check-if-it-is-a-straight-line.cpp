@@ -1,22 +1,11 @@
 class Solution {
 public:
     bool checkStraightLine(vector<vector<int>>& coordinates) {
-     int x1 = coordinates[0][0];
-        int y1 = coordinates[0][1];
-        int x2 = coordinates[1][0];
-        int y2 = coordinates[1][1];
-        
-        int diffY = y2-y1;
-        int diffX = x2-x1;
-        
-        for(int i=0;i<coordinates.size()-1;i++)
-        {
-             int cY1 = coordinates[i][1];
-            int cY2 = coordinates[i+1][1];
-            int cX1=coordinates[i][0];
-            int cX2 = coordinates[i+1][0];
-            
-            if(diffY*(cX2-cX1)!=diffX*(cY2-cY1))
+        int dY = coordinates[1][1] - coordinates[0][1];
+        int dX = coordinates[1][0] - coordinates[0][0];     
+        for( int i=2; i < coordinates.size(); i++ ) {
+            auto p = coordinates[i];
+            if( dX*(p[1] - coordinates[0][1]) != dY*(p[0] - coordinates[0][0]) )
                 return false;
         }
         return true;
