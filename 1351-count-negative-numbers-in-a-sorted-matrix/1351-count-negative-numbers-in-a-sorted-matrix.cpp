@@ -6,10 +6,10 @@ public:
         int r = 0, c = n - 1, cnt = 0;
         while (r < m && c >= 0) {
             if (grid[r][c] < 0) {
-                --c;
+                c--;
                 cnt += m - r; // there are m - r negative numbers in current column.
             }else {
-                ++r;
+                r++;
             }
         }
         return cnt;
