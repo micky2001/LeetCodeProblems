@@ -1,15 +1,12 @@
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
-        int n = nums.size();
-     
-        
-        for(int i=0;i<n;i++)
-        {
-            if(count(nums.begin(), nums.end(),nums[i])==1)
-                return nums[i];
+        int check, count, ans = 0;
+        for(int i=0; i<=31; i++){
+            check = 1<<i, count=0;
+            for(auto n : nums) if(n & check) count++;
+            if(count%3) ans |= check;
         }
-        
-        return 0;
+        return ans;
     }
 };
