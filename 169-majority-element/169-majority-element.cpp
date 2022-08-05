@@ -4,11 +4,11 @@ public:
         int count = 0;
         int candidate = 0;
 
-        for (int num : nums) {
+        for (int i=0;i<nums.size();i++) {
             if (count == 0) {
-                candidate = num;
+                candidate = nums[i];
             }
-            if(num==candidate) count += 1; 
+            if(nums[i] == candidate) count += 1; 
             else count -= 1; 
         }
 
